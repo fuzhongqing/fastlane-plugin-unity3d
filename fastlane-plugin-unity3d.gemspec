@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'fuzhongqing1995@gmail.com'
 
   spec.summary       = 'fastlane for unity3d engine'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-unity3d"
+  spec.homepage      = "https://github.com/fuzhongqing/fastlane-plugin-unity3d"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
