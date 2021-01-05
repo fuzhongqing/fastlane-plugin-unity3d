@@ -21,10 +21,11 @@ module Fastlane
           paths << "C:\\Program Files\\Unity\\Editor\\Unity.exe"
         elsif OS.mac?
           paths << "/Applications/Unity/Unity.app/Contents/MacOS/Unity"
-          paths << Dir[File.join('Applications', '**', 'Unity.app', 'Contents', 'MacOS', 'Unity')]
+          paths += Dir[File.join('Applications', '**', 'Unity.app', 'Contents', 'MacOS', 'Unity')]
         elsif OS.linux?
           paths << "~/Unity/Editor/Unity"
         end
+        puts paths
 
         return paths.find { |path| File.exist?(path) }
       end
