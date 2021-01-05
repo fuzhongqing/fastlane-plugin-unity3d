@@ -12,15 +12,47 @@ fastlane add_plugin unity3d
 
 ## About unity3d
 
-fastlane for unity3d engine
+fastlane pulgin for unity3d engine
 
-**Note to author:** Add a more detailed description about this plugin here. If your plugin contains multiple actions, make sure to mention them here.
+## Usage
 
-## Example
+```ruby
+unity3d(
+  execute_method: "SomeClass.YourBuildMethod"
+)
+```
 
-Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
+**recommend**:
 
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
+Add the following code to your `build script` to get a better experience
+
+```c#
+var result = BuildPipeline.BuildPlayer(scene, path, isAndroid ? BuildTarget.Android : BuildTarget.iOS, option);
+var summary = result.summary;
+var summaryJson = JsonConvert.SerializeObject(summary);
+        
+System.IO.File.WriteAllText(@".build_summary.json", summaryJson);
+```
+
+
+
+## Context Values
+
+if you genreated the `.build_summary.json` , There will be some [Lane Variables](https://docs.fastlane.tools/advanced/lanes/#lane-context)
+
+| SharedValue                                | **Description** |
+| ------------------------------------------ | --------------- |
+| SharedValues::UNITY3D_OUTPUT_PATH          |                 |
+| SharedValues::UNITY3D_BUILD_STARTED_AT     |                 |
+| SharedValues::UNITY3D_BUILD_ENDED_AT       |                 |
+| SharedValues::UNITY3D_PLATFORM             |                 |
+| SharedValues::UNITY3D_OPTIONS              |                 |
+| SharedValues::UNITY3D_TOTAL_ERRORS         |                 |
+| SharedValues::UNITY3D_TOTAL_TOTAL_WARNINGS |                 |
+| SharedValues::UNITY3D_TOTAL_TIME           |                 |
+| SharedValues::UNITY3D_TOTAL_SIZE           |                 |
+
+
 
 ## Run tests for this plugin
 
