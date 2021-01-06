@@ -22,7 +22,7 @@ module Fastlane
         UI.error "no executable found" unless params[:executable]
 
         build_cmd = "#{params[:executable]}"
-        build_cmd << " -projectPath #{params[:project_path]}"
+        build_cmd << " -projectPath '#{params[:project_path]}'"
         build_cmd << " -batchmode"
         build_cmd << " -quit"
         build_cmd << " -logfile #{params[:logfile]}"
