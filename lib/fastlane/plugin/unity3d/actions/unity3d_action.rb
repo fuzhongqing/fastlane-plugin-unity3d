@@ -28,6 +28,7 @@ module Fastlane
         build_cmd << " -logfile #{params[:logfile]}"
         build_cmd << " -nographics" if params[:nographics]
         build_cmd << " -executeMethod #{params[:execute_method]}" if params[:execute_method]
+        build_cmd << " -buildTarget #{params[:build_target]}" if params[:build_target]
 
         UI.message "\n#{
           Terminal::Table.new(
@@ -145,6 +146,13 @@ module Fastlane
                                        optional: true,
                                        is_string: false,
                                        default_value: false),
+
+          FastlaneCore::ConfigItem.new(key: :target,
+                                       env_name: "FL_UNITY_BUILD_TARGET",
+                                       description: "build target",
+                                       optional: true,
+                                       is_string: true,
+                                       default_value: "Standalone"),
         ]
       end
 
