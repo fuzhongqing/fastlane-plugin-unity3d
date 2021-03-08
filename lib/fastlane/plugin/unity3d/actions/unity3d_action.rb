@@ -149,7 +149,7 @@ module Fastlane
 
           FastlaneCore::ConfigItem.new(key: :build_target,
                                        env_name: "FL_UNITY_BUILD_TARGET",
-                                       description: "build target:  Possible options are: Standalone, Win, Win64, OSXUniversal, Linux64, iOS, Android, WebGL, XboxOne, PS4, WindowsStoreApps, Switch, tvOS.",
+                                       description: "build target:  Possible options are: Standalone, Win, Win64, OSXUniversal, Linux64, iOS, Android, WebGL, XboxOne, PS4, WindowsStoreApps, Switch, tvOS",
                                        optional: true,
                                        is_string: true,
                                        default_value: "Standalone"),
